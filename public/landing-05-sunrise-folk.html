@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vampire Survivors | Sunrise Folk</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bungee:wght@400&family=Nunito:wght@500;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --sky: #ffe8c6;
+        --sun: #ffbf66;
+        --grass: #2d8f66;
+        --deep: #154a3f;
+        --text: #2f2a24;
+        --card: #fff8ec;
+        --accent: #d8612a;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family: "Nunito", "Trebuchet MS", sans-serif;
+        color: var(--text);
+        min-height: 100vh;
+        background:
+          radial-gradient(circle at 15% 10%, #fff5e1 0%, transparent 35%),
+          radial-gradient(circle at 92% 20%, #ffd89a 0%, transparent 35%),
+          linear-gradient(180deg, var(--sky) 0%, #ffd2a4 45%, #f4c88c 100%);
+        overflow-x: hidden;
+      }
+
+      .shape {
+        position: fixed;
+        pointer-events: none;
+        z-index: 0;
+      }
+
+      .shape.sun {
+        width: 220px;
+        aspect-ratio: 1;
+        border-radius: 50%;
+        background: radial-gradient(circle at 40% 30%, #ffe8ba 0%, var(--sun) 72%);
+        top: 28px;
+        right: -50px;
+        filter: blur(0.4px);
+      }
+
+      .shape.hill {
+        left: -60px;
+        bottom: -120px;
+        width: 130vw;
+        height: 260px;
+        border-radius: 50% 50% 0 0;
+        background: linear-gradient(180deg, #44ac7f, var(--grass));
+      }
+
+      .wrap {
+        position: relative;
+        z-index: 1;
+        width: min(1080px, 100%);
+        margin: 0 auto;
+        padding: 26px 18px 54px;
+      }
+
+      .hero {
+        border: 2px solid #e9ad5b;
+        border-radius: 26px;
+        background: #fff4e2d8;
+        padding: clamp(20px, 3vw, 34px);
+        box-shadow: 0 16px 30px #8f4f221f;
+      }
+
+      .tag {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        border-radius: 999px;
+        padding: 6px 12px;
+        background: #ffe5c0;
+        border: 1px solid #efb873;
+        color: #935426;
+        font-weight: 800;
+        font-size: 0.84rem;
+      }
+
+      h1 {
+        margin: 14px 0 12px;
+        font-family: "Bungee", "Impact", sans-serif;
+        color: var(--deep);
+        font-size: clamp(2rem, 5vw, 3.8rem);
+        line-height: 1.05;
+        max-width: 10ch;
+      }
+
+      .sub {
+        margin: 0;
+        max-width: 62ch;
+        font-size: clamp(1rem, 2vw, 1.18rem);
+        color: #544636;
+      }
+
+      .actions {
+        margin-top: 18px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+
+      .btn {
+        text-decoration: none;
+        padding: 11px 16px;
+        border-radius: 12px;
+        font-weight: 800;
+      }
+
+      .btn-primary {
+        background: linear-gradient(90deg, var(--accent), #ff8d4d);
+        color: #fff7f1;
+      }
+
+      .btn-secondary {
+        color: #74451f;
+        border: 1px solid #d59a5d;
+        background: #fff3df;
+      }
+
+      .cards {
+        margin-top: 16px;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+        gap: 10px;
+      }
+
+      .card {
+        border: 1px solid #e4b781;
+        border-radius: 14px;
+        padding: 14px;
+        background: var(--card);
+        transform: translateY(10px);
+        opacity: 0;
+        animation: appear 620ms ease forwards;
+      }
+
+      .card:nth-child(2) {
+        animation-delay: 90ms;
+      }
+      .card:nth-child(3) {
+        animation-delay: 180ms;
+      }
+      .card:nth-child(4) {
+        animation-delay: 270ms;
+      }
+
+      @keyframes appear {
+        to {
+          transform: translateY(0);
+          opacity: 1;
+        }
+      }
+
+      .card h3 {
+        margin: 0 0 6px;
+        color: #1f614d;
+        font-size: 1.08rem;
+      }
+
+      .card p {
+        margin: 0;
+        color: #655240;
+        line-height: 1.35;
+      }
+
+      .cta-strip {
+        margin-top: 12px;
+        border: 1px dashed #d09f67;
+        border-radius: 14px;
+        padding: 12px;
+        background: #fff6e9;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        gap: 8px;
+        align-items: center;
+      }
+
+      .cta-strip strong {
+        color: #78401f;
+      }
+
+      .cta-strip span {
+        color: #755132;
+      }
+
+      .back {
+        display: inline-block;
+        margin-top: 14px;
+        color: #734625;
+      }
+
+      @media (max-width: 680px) {
+        .shape.sun {
+          width: 150px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="shape sun" aria-hidden="true"></div>
+    <div class="shape hill" aria-hidden="true"></div>
+
+    <main class="wrap">
+      <section class="hero">
+        <span class="tag">Sunrise Mode • Cozy Chaos</span>
+        <h1>Проснись, выживи, собери безумный билд</h1>
+        <p class="sub">
+          Лёгкий по тону, но мощный по смыслу лендинг для широкой аудитории: быстрый старт, ясная ценность
+          и акцент на кайфе от «ещё одного забега».
+        </p>
+
+        <div class="actions">
+          <a href="#" class="btn btn-primary">Начать приключение</a>
+          <a href="#" class="btn btn-secondary">Посмотреть персонажей</a>
+        </div>
+
+        <section class="cards">
+          <article class="card">
+            <h3>Собирай коллекцию</h3>
+            <p>Разблокируй героев, арканы и реликвии с уникальными эффектами.</p>
+          </article>
+          <article class="card">
+            <h3>Играй короткими сессиями</h3>
+            <p>Один раунд примерно 30 минут, идеально для быстрого захода.</p>
+          </article>
+          <article class="card">
+            <h3>Экспериментируй со сборками</h3>
+            <p>Комбинируй оружие, чтобы превращать хаос в контролируемую силу.</p>
+          </article>
+          <article class="card">
+            <h3>Возвращайся за секретами</h3>
+            <p>Каждая карта прячет новые условия, пасхалки и неожиданные цели.</p>
+          </article>
+        </section>
+
+        <div class="cta-strip">
+          <strong>Ближайшая цель:</strong>
+          <span>Пережить 30:00 и открыть следующего персонажа</span>
+        </div>
+      </section>
+      <a class="back" href="./landing-gallery.html">← Ко всем версиям</a>
+    </main>
+  </body>
+</html>

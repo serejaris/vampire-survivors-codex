@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vampire Survivors | Gothic Epic</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Cormorant+Garamond:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --paper: #f3e8cf;
+        --ink: #2f1e15;
+        --muted: #6f5a46;
+        --accent: #9f2d22;
+        --line: #c7b091;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        color: var(--ink);
+        font-family: "Cormorant Garamond", "Georgia", serif;
+        min-height: 100vh;
+        background:
+          radial-gradient(circle at 0% 0%, #fff6e5 0%, transparent 35%),
+          radial-gradient(circle at 100% 100%, #e6d2b7 0%, transparent 40%),
+          linear-gradient(180deg, #f8f0dd 0%, var(--paper) 100%);
+      }
+
+      .vignette {
+        position: fixed;
+        inset: 0;
+        pointer-events: none;
+        box-shadow: inset 0 0 120px #5f3c222d;
+      }
+
+      .wrap {
+        width: min(980px, 100%);
+        margin: 0 auto;
+        padding: 24px 20px 48px;
+      }
+
+      .frame {
+        border: 2px solid var(--line);
+        border-radius: 20px;
+        padding: clamp(18px, 3vw, 36px);
+        background:
+          linear-gradient(0deg, #f0e1c4 0%, #f7edd8 100%),
+          repeating-linear-gradient(
+            to bottom,
+            transparent 0px,
+            transparent 6px,
+            rgba(64, 39, 28, 0.02) 7px
+          );
+        box-shadow: 0 16px 32px #5a3e251f;
+      }
+
+      .crest {
+        font-family: "Cinzel", serif;
+        font-size: 0.85rem;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+        color: var(--accent);
+      }
+
+      h1 {
+        font-family: "Cinzel", serif;
+        font-size: clamp(2rem, 4vw, 3.4rem);
+        line-height: 1.08;
+        margin: 12px 0 14px;
+      }
+
+      .subtitle {
+        font-size: clamp(1.14rem, 2.3vw, 1.32rem);
+        color: var(--muted);
+        max-width: 62ch;
+      }
+
+      .actions {
+        margin-top: 20px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+
+      .btn {
+        padding: 10px 16px;
+        border-radius: 999px;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 1rem;
+      }
+
+      .btn-primary {
+        background: var(--accent);
+        color: #f9ede0;
+      }
+
+      .btn-secondary {
+        border: 1px solid #8b7056;
+        color: #5f4734;
+      }
+
+      .columns {
+        display: grid;
+        grid-template-columns: 1.2fr 1fr;
+        gap: 18px;
+        margin-top: 24px;
+      }
+
+      .panel {
+        border: 1px solid #c9b293;
+        border-radius: 14px;
+        padding: 14px 16px;
+        background: #faefd9a6;
+      }
+
+      h2 {
+        font-family: "Cinzel", serif;
+        margin: 0 0 8px;
+        font-size: 1.2rem;
+      }
+
+      .panel p {
+        margin: 0;
+        color: #634d3b;
+        font-size: 1.05rem;
+        line-height: 1.4;
+      }
+
+      .chronicle {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        display: grid;
+        gap: 10px;
+      }
+
+      .chronicle li {
+        border-left: 3px solid var(--accent);
+        padding-left: 10px;
+        color: #5a4331;
+      }
+
+      .chronicle span {
+        font-family: "Cinzel", serif;
+        font-size: 0.86rem;
+        color: #9f2d22;
+        text-transform: uppercase;
+      }
+
+      .seal {
+        margin-top: 20px;
+        width: 112px;
+        height: 112px;
+        border-radius: 50%;
+        border: 2px solid #b68f67;
+        display: grid;
+        place-items: center;
+        font-family: "Cinzel", serif;
+        font-size: 0.7rem;
+        color: #7e2b1f;
+        background: radial-gradient(circle at 30% 25%, #f7dcc1, #dba67d);
+        animation: pulse 2.8s ease-in-out infinite;
+      }
+
+      @keyframes pulse {
+        0%,
+        100% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.04);
+        }
+      }
+
+      .back {
+        display: inline-block;
+        margin-top: 16px;
+        color: #7f3426;
+      }
+
+      @media (max-width: 760px) {
+        .columns {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="vignette" aria-hidden="true"></div>
+    <main class="wrap">
+      <section class="frame">
+        <div class="crest">Хроники Белпейса</div>
+        <h1>Даже ночь боится тех, кто выжил до рассвета</h1>
+        <p class="subtitle">
+          Vampire Survivors превращает каждый забег в предание: миллионы врагов, редкие реликвии и
+          дьявольские сочетания оружия, что переписывают судьбу.
+        </p>
+
+        <div class="actions">
+          <a href="#" class="btn btn-primary">Начать охоту</a>
+          <a href="#" class="btn btn-secondary">Читать хроники DLC</a>
+        </div>
+
+        <div class="columns">
+          <article class="panel">
+            <h2>Свод рыцаря</h2>
+            <p>
+              От руин часовни до проклятых библиотек: выбери путь героя, собери реликвии и переживи
+              финальную бурю.
+            </p>
+            <div class="seal">Sanctum<br />Noctis</div>
+          </article>
+
+          <article class="panel">
+            <h2>Пять ступеней выживания</h2>
+            <ul class="chronicle">
+              <li><span>I</span> Найди стартовую синергию до 5-й минуты.</li>
+              <li><span>II</span> Сформируй две эволюции до появления элиты.</li>
+              <li><span>III</span> Удерживай контроль экрана аурами и отталкиванием.</li>
+              <li><span>IV</span> Забери сундуки босса в правильный тайминг.</li>
+              <li><span>V</span> Открой аркан и переживи финальный натиск.</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+      <a class="back" href="./landing-gallery.html">← Ко всем версиям</a>
+    </main>
+  </body>
+</html>

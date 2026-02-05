@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vampire Survivors Codex Clone</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <div class="shell">
+      <header class="topbar">
+        <div class="brand">
+          <h1>Vampire Survivors Clone</h1>
+          <p>WASD/стрелки для движения. Атака автоматическая.</p>
+          <a class="landing-link" href="/landing-gallery.html">Смотреть 5 версий лендинга</a>
+        </div>
+        <div class="stats">
+          <div class="stat">
+            <span>Score</span>
+            <strong id="scoreValue">0</strong>
+          </div>
+          <div class="stat">
+            <span>Time</span>
+            <strong id="timeValue">0s</strong>
+          </div>
+          <div class="stat">
+            <span>HP</span>
+            <strong id="hpValue">100</strong>
+          </div>
+          <div class="stat">
+            <span>Level</span>
+            <strong id="levelValue">1</strong>
+          </div>
+        </div>
+      </header>
+
+      <main class="content">
+        <section class="arena-wrap">
+          <canvas id="gameCanvas" width="960" height="540"></canvas>
+
+          <div class="overlay" id="startOverlay">
+            <h2>Готов к забегу?</h2>
+            <p>
+              Выживай как можно дольше, набивай очки и отправляй результат в общий рейтинг
+              после смерти.
+            </p>
+            <button id="startButton" class="btn primary">Start Run</button>
+          </div>
+
+          <div class="overlay hidden" id="upgradeOverlay">
+            <h2>Выбор улучшения</h2>
+            <p>Выбери 1 улучшение, чтобы продолжить раунд.</p>
+            <div class="upgrade-grid" id="upgradeChoices"></div>
+          </div>
+
+          <div class="overlay hidden" id="gameOverOverlay">
+            <h2>Run Complete</h2>
+            <p id="finalStats">Score: 0 · Time: 0s</p>
+
+            <form id="scoreForm" autocomplete="off">
+              <label for="nicknameInput">Ник в рейтинге</label>
+              <input
+                id="nicknameInput"
+                type="text"
+                maxlength="20"
+                minlength="2"
+                placeholder="например, BladeMaster"
+                required
+              />
+              <button type="submit" class="btn primary">Save Score</button>
+              <p id="submitStatus"></p>
+            </form>
+
+            <button id="restartButton" class="btn">Play Again</button>
+          </div>
+        </section>
+
+        <aside class="leaderboard">
+          <div class="leaderboard-head">
+            <h2>Global Leaderboard</h2>
+            <button id="refreshLeaderboard" class="btn ghost">Refresh</button>
+          </div>
+          <p class="leaderboard-note">
+            Рейтинг растет по сумме очков за все раны. Лидерборд общий для всех игроков.
+          </p>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Player</th>
+                  <th>Rating</th>
+                  <th>Best</th>
+                  <th>Runs</th>
+                </tr>
+              </thead>
+              <tbody id="leaderboardBody">
+                <tr>
+                  <td colspan="5">Loading...</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </aside>
+      </main>
+    </div>
+    <script type="module" src="/game.js"></script>
+  </body>
+</html>

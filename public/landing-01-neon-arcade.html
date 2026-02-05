@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vampire Survivors | Neon Arcade</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Sora:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --bg: #05070c;
+        --panel: #0b1020cc;
+        --text: #d9e7ff;
+        --muted: #8da2ca;
+        --accent: #00e0ff;
+        --danger: #ff4c70;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family: "Sora", "Trebuchet MS", sans-serif;
+        color: var(--text);
+        background:
+          radial-gradient(circle at 15% 15%, #10244a 0%, transparent 45%),
+          radial-gradient(circle at 85% 10%, #401538 0%, transparent 40%),
+          radial-gradient(circle at 50% 90%, #0a1d34 0%, transparent 45%),
+          var(--bg);
+        min-height: 100vh;
+      }
+
+      body::after {
+        content: "";
+        position: fixed;
+        inset: 0;
+        pointer-events: none;
+        background: repeating-linear-gradient(
+          to bottom,
+          rgba(255, 255, 255, 0.02) 0px,
+          rgba(255, 255, 255, 0.02) 1px,
+          transparent 2px,
+          transparent 4px
+        );
+        mix-blend-mode: screen;
+      }
+
+      .wrap {
+        width: min(1120px, 100%);
+        margin: 0 auto;
+        padding: 24px 20px 56px;
+      }
+
+      .top {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 14px;
+        margin-bottom: 26px;
+      }
+
+      .logo {
+        font-family: "Press Start 2P", monospace;
+        font-size: 0.95rem;
+        color: var(--accent);
+        text-shadow: 0 0 12px #00e0ff99;
+      }
+
+      .cta-small {
+        border: 1px solid var(--accent);
+        color: var(--accent);
+        padding: 10px 14px;
+        border-radius: 999px;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 0.9rem;
+      }
+
+      .hero {
+        background: var(--panel);
+        border: 1px solid #284477;
+        border-radius: 24px;
+        padding: clamp(24px, 4vw, 52px);
+        backdrop-filter: blur(6px);
+        box-shadow: inset 0 0 0 1px #17284a, 0 0 30px #0c153099;
+      }
+
+      .eyebrow {
+        display: inline-flex;
+        padding: 6px 12px;
+        border-radius: 999px;
+        border: 1px solid #32548f;
+        color: #a9c0ea;
+        font-size: 0.8rem;
+      }
+
+      h1 {
+        font-family: "Press Start 2P", monospace;
+        font-size: clamp(1.6rem, 4vw, 3.1rem);
+        line-height: 1.2;
+        margin: 20px 0 16px;
+        max-width: 15ch;
+        animation: glitch 3s infinite;
+      }
+
+      @keyframes glitch {
+        0%,
+        98%,
+        100% {
+          text-shadow: 2px 0 var(--accent), -2px 0 var(--danger);
+        }
+        99% {
+          text-shadow: -3px 0 var(--accent), 3px 0 var(--danger);
+        }
+      }
+
+      .sub {
+        color: var(--muted);
+        font-size: clamp(1rem, 2vw, 1.15rem);
+        max-width: 56ch;
+      }
+
+      .buttons {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-top: 24px;
+      }
+
+      .btn {
+        padding: 12px 18px;
+        border-radius: 12px;
+        text-decoration: none;
+        font-weight: 700;
+      }
+
+      .btn-primary {
+        background: linear-gradient(90deg, var(--accent), #7af1ff);
+        color: #001220;
+      }
+
+      .btn-secondary {
+        border: 1px solid #385b94;
+        color: #b7ceef;
+      }
+
+      .stats {
+        margin-top: 24px;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+        gap: 12px;
+      }
+
+      .stat {
+        border-radius: 14px;
+        border: 1px solid #284477;
+        background: #0c1731b0;
+        padding: 14px;
+        transform: translateY(12px);
+        opacity: 0;
+        animation: rise 700ms ease forwards;
+      }
+
+      .stat:nth-child(2) {
+        animation-delay: 90ms;
+      }
+      .stat:nth-child(3) {
+        animation-delay: 180ms;
+      }
+      .stat:nth-child(4) {
+        animation-delay: 270ms;
+      }
+
+      @keyframes rise {
+        to {
+          transform: translateY(0);
+          opacity: 1;
+        }
+      }
+
+      .num {
+        font-family: "Press Start 2P", monospace;
+        font-size: 1rem;
+      }
+
+      .label {
+        margin-top: 8px;
+        color: #91a8d4;
+        font-size: 0.85rem;
+      }
+
+      .features {
+        margin-top: 26px;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 12px;
+      }
+
+      .feature {
+        border: 1px solid #284477;
+        border-radius: 16px;
+        padding: 18px;
+        background: #09122a99;
+      }
+
+      .feature h3 {
+        margin: 0 0 8px;
+        font-size: 1.04rem;
+      }
+
+      .feature p {
+        margin: 0;
+        color: var(--muted);
+        line-height: 1.45;
+      }
+
+      .back {
+        display: inline-block;
+        margin-top: 22px;
+        color: #86c7ff;
+      }
+
+      @media (max-width: 680px) {
+        .logo {
+          font-size: 0.72rem;
+        }
+        .cta-small {
+          font-size: 0.82rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="wrap">
+      <header class="top">
+        <div class="logo">VAMPIRE SURVIVORS</div>
+        <a class="cta-small" href="#">Играть сейчас</a>
+      </header>
+
+      <section class="hero">
+        <span class="eyebrow">Аркадный хаос</span>
+        <h1>ПЕРЕЖИВИ 30 МИНУТ В АДУ ПИКСЕЛЕЙ</h1>
+        <p class="sub">
+          Собирай безумные комбинации оружия, коси волны монстров и становись ходячей бурей из
+          снарядов. Каждая секунда ускоряет хаос.
+        </p>
+        <div class="buttons">
+          <a class="btn btn-primary" href="#">Купить в Steam</a>
+          <a class="btn btn-secondary" href="#">Смотреть трейлер</a>
+        </div>
+
+        <div class="stats">
+          <article class="stat">
+            <div class="num">80+</div>
+            <div class="label">персонажей и форм</div>
+          </article>
+          <article class="stat">
+            <div class="num">160+</div>
+            <div class="label">эволюций оружия</div>
+          </article>
+          <article class="stat">
+            <div class="num">30 min</div>
+            <div class="label">на один забег</div>
+          </article>
+          <article class="stat">
+            <div class="num">∞</div>
+            <div class="label">комбинаций билдов</div>
+          </article>
+        </div>
+
+        <section class="features">
+          <article class="feature">
+            <h3>Авто-атака</h3>
+            <p>Двигайся, позиционируйся, принимай решения о прокачке. Бой идёт без паузы.</p>
+          </article>
+          <article class="feature">
+            <h3>Глубокая прогрессия</h3>
+            <p>Разблокируй арканы, секреты, реликвии и новых героев между забегами.</p>
+          </article>
+          <article class="feature">
+            <h3>DLC-режимы</h3>
+            <p>Новые карты, боссы и механики для игроков, которые хотят ещё больше хаоса.</p>
+          </article>
+        </section>
+      </section>
+
+      <a class="back" href="./landing-gallery.html">← Ко всем версиям</a>
+    </main>
+  </body>
+</html>

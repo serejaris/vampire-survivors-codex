@@ -1,0 +1,24 @@
+{
+  "name": "vampire-survivors-codex",
+  "version": "1.0.0",
+  "description": "Lightweight Vampire Survivors style game with global leaderboard for Railway deployment.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js"
+  },
+  "keywords": [
+    "game",
+    "canvas",
+    "leaderboard",
+    "railway"
+  ],
+  "license": "MIT",
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "express": "^4.19.2",
+    "pg": "^8.13.1"
+  }
+}

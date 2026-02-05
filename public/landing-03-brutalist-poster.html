@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vampire Survivors | Brutalist Poster</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Manrope:wght@500;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --bg: #f4f0e8;
+        --ink: #111111;
+        --signal: #df2c1f;
+        --line: #151515;
+        --panel: #fffaf2;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family: "Manrope", "Trebuchet MS", sans-serif;
+        background:
+          linear-gradient(135deg, #f4f0e8 0%, #f7f3eb 45%, #efe7da 100%),
+          var(--bg);
+        color: var(--ink);
+      }
+
+      .wrap {
+        width: min(1080px, 100%);
+        margin: 0 auto;
+        padding: 22px 16px 52px;
+      }
+
+      .hero {
+        border: 3px solid var(--line);
+        background: var(--panel);
+        border-radius: 18px;
+        padding: clamp(20px, 3vw, 34px);
+        box-shadow: 14px 14px 0 #00000016;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .hero::before {
+        content: "";
+        position: absolute;
+        width: 280px;
+        height: 280px;
+        border-radius: 32px;
+        background: #df2c1f;
+        top: -110px;
+        right: -70px;
+        transform: rotate(20deg);
+      }
+
+      .tag {
+        font-weight: 800;
+        border: 2px solid var(--line);
+        display: inline-flex;
+        padding: 5px 10px;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        font-size: 0.76rem;
+        background: #fff;
+      }
+
+      h1 {
+        margin: 12px 0 10px;
+        font-family: "Bebas Neue", sans-serif;
+        font-size: clamp(2.6rem, 9vw, 6rem);
+        line-height: 0.92;
+        letter-spacing: 0.02em;
+        max-width: 9ch;
+        position: relative;
+        z-index: 1;
+      }
+
+      .sub {
+        margin: 0;
+        max-width: 60ch;
+        font-size: clamp(1rem, 2vw, 1.18rem);
+        font-weight: 600;
+        line-height: 1.35;
+        position: relative;
+        z-index: 1;
+      }
+
+      .actions {
+        margin-top: 20px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        position: relative;
+        z-index: 1;
+      }
+
+      .btn {
+        border: 2px solid var(--line);
+        padding: 11px 14px;
+        text-decoration: none;
+        color: var(--ink);
+        font-weight: 800;
+      }
+
+      .btn-primary {
+        background: #111;
+        color: #fff5ec;
+      }
+
+      .grid {
+        margin-top: 14px;
+        display: grid;
+        gap: 10px;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      }
+
+      .tile {
+        border: 2px solid var(--line);
+        padding: 14px;
+        background: #fff;
+        min-height: 126px;
+        transform: translateY(8px);
+        opacity: 0;
+        animation: tile-in 520ms ease forwards;
+      }
+
+      .tile:nth-child(2) {
+        animation-delay: 80ms;
+      }
+      .tile:nth-child(3) {
+        animation-delay: 160ms;
+      }
+      .tile:nth-child(4) {
+        animation-delay: 240ms;
+      }
+
+      @keyframes tile-in {
+        to {
+          transform: translateY(0);
+          opacity: 1;
+        }
+      }
+
+      .tile h3 {
+        margin: 0 0 6px;
+        font-family: "Bebas Neue", sans-serif;
+        font-size: 1.45rem;
+        letter-spacing: 0.03em;
+      }
+
+      .tile p {
+        margin: 0;
+        font-weight: 600;
+        line-height: 1.35;
+      }
+
+      .marquee {
+        margin-top: 16px;
+        border: 2px solid var(--line);
+        background: #111;
+        color: #fff2e4;
+        padding: 9px 10px;
+        white-space: nowrap;
+        overflow: hidden;
+        font-weight: 800;
+      }
+
+      .track {
+        display: inline-block;
+        padding-left: 100%;
+        animation: run 14s linear infinite;
+      }
+
+      @keyframes run {
+        to {
+          transform: translateX(-100%);
+        }
+      }
+
+      .back {
+        display: inline-block;
+        margin-top: 14px;
+        color: #161616;
+        font-weight: 700;
+      }
+
+      @media (max-width: 640px) {
+        .hero::before {
+          width: 200px;
+          height: 200px;
+          top: -88px;
+          right: -92px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="wrap">
+      <section class="hero">
+        <span class="tag">Brutal run-builder</span>
+        <h1>NO MERCY. JUST SURVIVE.</h1>
+        <p class="sub">
+          Вампирский bullet heaven, где каждое улучшение работает как строительный блок: правильно
+          собираешь билд и превращаешь экран в мясорубку.
+        </p>
+
+        <div class="actions">
+          <a class="btn btn-primary" href="#">Play on Steam</a>
+          <a class="btn" href="#">Patch Notes</a>
+        </div>
+      </section>
+
+      <section class="grid">
+        <article class="tile">
+          <h3>DROP IN</h3>
+          <p>Выбери героя, карту и включай режим потока.</p>
+        </article>
+        <article class="tile">
+          <h3>STACK UP</h3>
+          <p>Собери синергию пассивок и эволюций.</p>
+        </article>
+        <article class="tile">
+          <h3>HOLD LINE</h3>
+          <p>Переживи элит и армию в поздней игре.</p>
+        </article>
+        <article class="tile">
+          <h3>BREAK META</h3>
+          <p>Комбинируй арканы и ломай привычные билды.</p>
+        </article>
+      </section>
+
+      <div class="marquee">
+        <span class="track"
+          >NEW DLC • NEW BOSSES • NEW ARCANAS • CO-OP CHAOS • ENDLESS BUILDS • NEW DLC • NEW BOSSES •
+          NEW ARCANAS •</span
+        >
+      </div>
+
+      <a class="back" href="./landing-gallery.html">← Ко всем версиям</a>
+    </main>
+  </body>
+</html>

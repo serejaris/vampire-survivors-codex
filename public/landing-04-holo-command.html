@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vampire Survivors | Holo Command</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;800&family=Rajdhani:wght@500;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --bg: #061423;
+        --panel: #0a2137d9;
+        --line: #1f4e73;
+        --text: #d6e9ff;
+        --muted: #8eb3d0;
+        --accent: #38f2cf;
+        --warn: #ffad46;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family: "Rajdhani", "Trebuchet MS", sans-serif;
+        color: var(--text);
+        min-height: 100vh;
+        background:
+          radial-gradient(circle at 85% 8%, #0f375a 0%, transparent 37%),
+          radial-gradient(circle at 5% 100%, #0d2a47 0%, transparent 42%),
+          var(--bg);
+        overflow-x: hidden;
+      }
+
+      body::before {
+        content: "";
+        position: fixed;
+        inset: 0;
+        pointer-events: none;
+        background-image:
+          linear-gradient(rgba(72, 128, 167, 0.14) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(72, 128, 167, 0.14) 1px, transparent 1px);
+        background-size: 52px 52px;
+        mask-image: radial-gradient(circle at 50% 30%, #000 30%, transparent 88%);
+      }
+
+      .wrap {
+        width: min(1120px, 100%);
+        margin: 0 auto;
+        padding: 22px 18px 52px;
+      }
+
+      .shell {
+        border: 1px solid var(--line);
+        border-radius: 18px;
+        background: linear-gradient(180deg, #0b2540e6, #071b2fdc);
+        padding: clamp(20px, 3vw, 34px);
+        box-shadow: 0 18px 40px #03111fb8;
+      }
+
+      .bar {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 18px;
+        font-size: 0.92rem;
+        color: #9fc2de;
+      }
+
+      .status {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .dot {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: var(--accent);
+        box-shadow: 0 0 12px var(--accent);
+        animation: ping 1.6s ease-in-out infinite;
+      }
+
+      @keyframes ping {
+        50% {
+          transform: scale(1.4);
+          opacity: 0.45;
+        }
+      }
+
+      h1 {
+        margin: 0;
+        font-family: "Orbitron", sans-serif;
+        text-transform: uppercase;
+        letter-spacing: 0.03em;
+        font-size: clamp(1.9rem, 4.8vw, 3.5rem);
+        line-height: 1.06;
+        max-width: 16ch;
+      }
+
+      .sub {
+        margin: 14px 0 0;
+        font-size: clamp(1rem, 2vw, 1.2rem);
+        color: var(--muted);
+        max-width: 64ch;
+      }
+
+      .actions {
+        margin-top: 20px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+
+      .btn {
+        text-decoration: none;
+        padding: 10px 16px;
+        border-radius: 10px;
+        font-family: "Orbitron", sans-serif;
+        font-size: 0.82rem;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+      }
+
+      .btn-primary {
+        background: linear-gradient(90deg, var(--accent), #9dffd2);
+        color: #032723;
+      }
+
+      .btn-secondary {
+        border: 1px solid #3c7097;
+        color: #bfdaef;
+      }
+
+      .modules {
+        margin-top: 20px;
+        display: grid;
+        grid-template-columns: 1.2fr 1fr;
+        gap: 12px;
+      }
+
+      .panel {
+        border: 1px solid #2b597f;
+        border-radius: 14px;
+        background: #081c30b0;
+        padding: 14px;
+      }
+
+      .panel h2 {
+        margin: 0 0 8px;
+        font-family: "Orbitron", sans-serif;
+        font-size: 0.98rem;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+      }
+
+      .panel p {
+        margin: 0;
+        color: #9ab9d4;
+        line-height: 1.35;
+        font-size: 1.02rem;
+      }
+
+      .stats {
+        margin-top: 12px;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 8px;
+      }
+
+      .stat {
+        border: 1px solid #335c7f;
+        border-radius: 10px;
+        padding: 10px;
+        background: #0c223af2;
+      }
+
+      .stat strong {
+        display: block;
+        font-family: "Orbitron", sans-serif;
+        font-size: 1.1rem;
+        color: var(--accent);
+      }
+
+      .stat span {
+        color: #8cadc9;
+        font-size: 0.92rem;
+      }
+
+      .feed {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: grid;
+        gap: 8px;
+      }
+
+      .feed li {
+        border: 1px solid #315978;
+        border-radius: 10px;
+        padding: 10px;
+        background: #0b2037;
+        display: flex;
+        justify-content: space-between;
+        gap: 10px;
+        align-items: center;
+      }
+
+      .feed code {
+        font-family: "Orbitron", sans-serif;
+        color: var(--warn);
+        font-size: 0.76rem;
+      }
+
+      .back {
+        display: inline-block;
+        margin-top: 16px;
+        color: #a7cbe8;
+      }
+
+      @media (max-width: 840px) {
+        .modules {
+          grid-template-columns: 1fr;
+        }
+
+        .stats {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+
+      @media (max-width: 520px) {
+        .stats {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="wrap">
+      <section class="shell">
+        <div class="bar">
+          <div>Protocol: BELPAESE DEFENSE GRID</div>
+          <div class="status"><span class="dot" aria-hidden="true"></span> Sector online</div>
+        </div>
+
+        <h1>Deploy your hunter. Clean the map. Repeat.</h1>
+        <p class="sub">
+          Тактический лендинг в стилистике командного центра: быстрый вход, фокус на данных и мгновенный
+          переход к игре.
+        </p>
+
+        <div class="actions">
+          <a class="btn btn-primary" href="#">Launch mission</a>
+          <a class="btn btn-secondary" href="#">Download dossier</a>
+        </div>
+
+        <section class="modules">
+          <article class="panel">
+            <h2>System Overview</h2>
+            <p>
+              Удерживай периметр 30 минут, развивай вооружение в реальном времени и адаптируй билд под
+              каждую волну.
+            </p>
+            <div class="stats">
+              <div class="stat">
+                <strong>214</strong>
+                <span>weapon forms</span>
+              </div>
+              <div class="stat">
+                <strong>42</strong>
+                <span>map sectors</span>
+              </div>
+              <div class="stat">
+                <strong>99.7%</strong>
+                <span>chaos uptime</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="panel">
+            <h2>Live Feed</h2>
+            <ul class="feed">
+              <li><span>Arcana unlocked: Awake</span> <code>03:18</code></li>
+              <li><span>Elite unit collapsed</span> <code>12:44</code></li>
+              <li><span>Evolution complete: Bloody Tear</span> <code>17:02</code></li>
+              <li><span>Final wave reached</span> <code>29:30</code></li>
+            </ul>
+          </article>
+        </section>
+      </section>
+      <a class="back" href="./landing-gallery.html">← Ко всем версиям</a>
+    </main>
+  </body>
+</html>
